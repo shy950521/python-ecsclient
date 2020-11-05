@@ -266,7 +266,7 @@ the ``pip install python-ecsclient`` defined above:
     $ . venv/bin/activate
     $ pip install -r requirements.txt
 
-Running Tests
+Running Tests(Linux)
 ~~~~~~~~~~~~~
 You can run tests in all supported Python versions using ``tox``. By default,
 it will run all of the unit tests, but you can also specify your own
@@ -277,13 +277,26 @@ versions of Python installed, otherwise you must pass ``-e`` or run the
 .. code-block:: sh
 
     $ tox
-    $ tox -e py27,py35 tests/functional
+    $ tox -e py27,py35
 
 You can also run individual tests with your default Python version:
 
 .. code-block:: sh
 
-    $ nosetests tests/unit
+    $ pip install -r test-requirements.txt
+    $ nosetests
+
+Running Tests(Win10)
+~~~~~~~~~~~~~
+We recommend to run the ``nosetests`` command under your ``virtualenv`` python:
+
+.. code-block:: powershell
+
+    $ virtualenv myenv
+    $ myenv\Scripts\activate
+    $ pip install -r requirements.txt
+    $ pip install -r test-requirements.txt
+    $ python -m nose
 
 License
 -------
